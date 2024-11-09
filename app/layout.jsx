@@ -4,6 +4,7 @@ import { JetBrains_Mono } from "next/font/google";
 
 // components 
 import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,7 +33,10 @@ export default function RootLayout({ children }) {
       <body
         className={jetbrainsMono.variable}>
         <Header />
-        {children}
+
+        <PageTransition>
+          {children}
+        </PageTransition>
       </body>
     </html>
   );

@@ -48,10 +48,11 @@ const SheetContent = React.forwardRef(({ side = "right", className, children, ..
   <SheetPortal>
     <SheetOverlay />
     <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
+    <SheetPrimitive.Title></SheetPrimitive.Title>
       {children}
       <SheetPrimitive.Close
         className="fixed right-8 top-8 transtion-opacity outline-none">
-        <IoMdClose className="text-3xl text-accent" />
+        <IoMdClose className="text-3xl text-transition_colour hover:text-accent" />
         <span className="sr-only">Close</span>
       </SheetPrimitive.Close>
     </SheetPrimitive.Content>

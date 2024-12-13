@@ -1,0 +1,20 @@
+.my-custom-svg{
+    height: clamp(70px, 7vw, 90px);
+    transition: transform 0.3s ease;
+}
+
+.my-custom-path{
+    transition: fill 0.5s ease;
+}
+
+.my-custom-svg:hover{
+    transform: scale(1.2);
+}
+
+.my-custom-div{
+    width: 100%;
+}
+
+.my-custom-div:hover .my-custom-svg{
+    transform: scale(1.2);
+}

@@ -14,13 +14,13 @@ const Photo = () => {
     };
 
     useEffect(() => {
-        trigger_timer(600);
+        trigger_timer(800);
     }, []);
 
     return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full relative z-[0]">
         <div className={`w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten ${
-          isvisible ? "" : "hidden_pic"
+          isvisible ? "" : "hidden_opc"
         }`}>
             <div className="relative top-0.5 left-0.5 w-[293px] h-[293px] xl:w-[490px] xl:h-[490px] xl:top-1 xl:left-1 hidden">
                 <Image src="/image_test.png" fill priority quality={1} alt="" style={{objectFit:"cover", borderRadius: "50%",}}
@@ -41,10 +41,10 @@ const Photo = () => {
                     initial={{strokeDasharray: "24 10 0 0"}}
                     animate={{
                         strokeDasharray: ["15 120 25 25", "16 25 92 72", "4 250 22 22"],
-                        rotate: [90, 360],
+                        rotate: [120, 360],
                     }}
                     transition={{
-                        duration: 15,
+                        duration: 20,
                         repeat: Infinity,
                         repeatType: "reverse",
                     }}/>

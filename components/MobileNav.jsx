@@ -15,12 +15,8 @@ const links = [
         path: "/resume",
     },
     {
-        name: "work",
-        path: "/work",
-    },
-    {
         name: "projects",
-        path: "/projects",
+        path: "/project_overview",
     },
     {
         name: "contact",
@@ -34,7 +30,7 @@ const MobileNav = () => {
         <SheetTrigger className="flex justify-center items-center">
             <CiMenuFries className="text-[32px] text-accent"/>
         </SheetTrigger>
-        <SheetContent className="flex flex-col">
+        <SheetContent className="flex flex-col z-[52]">
             {/* logo here */}
             <div className="mt-32 text-center text-2xl relative -top-5">
                 <Link href="/">

@@ -24,12 +24,12 @@ module.exports = {
 	},
   	extend: {
 		colors: {
-			// #1c1c22, default: 00ff99, hover: #db8a8a
 			primary: "#000000",
 			transition_colour: "#853131",
 			accent: {
 				DEFAULT: "#de5454",
 				hover: "#b83232",
+				clicked: "#b25a5a",
 			},
 		},
   		keyframes: {
@@ -49,5 +49,6 @@ module.exports = {
 		},
   	},
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+	require("tailwindcss-animate")],
 };

@@ -23,7 +23,10 @@ const Footer = () => {
                         </div>
                     );
                 })}
-                <h1 className="flex justify-center">©2025 Shenol Niko Peiris. All rights reserved.</h1>
+                <div className="flex justify-center items-center gap-1 xl:flex-row flex-col">
+                    <h1 className="flex justify-center items-center">©2025 Shenol Niko Peiris.</h1>
+                    <h1 className="flex justify-center items-center">All rights reserved.</h1>
+                </div>
             </div>
         </footer>
     );

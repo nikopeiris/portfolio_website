@@ -17,6 +17,7 @@ import {
     Python,
     Matlab,
     Tailwind,
+    Blender,
 } from "@/components/icons/icons";
 
 // about data
@@ -111,6 +112,10 @@ const skills = {
         {
             icon: <Tailwind svg_class={"my-custom-svg"} path_class={"my-custom-path"}/>,
             name: "Tailwind CSS",
+        },
+        {
+            icon: <Blender svg_class={"my-custom-svg"} path_class={"my-custom-path"}/>,
+            name: "Blender",
         },
     ],
 };

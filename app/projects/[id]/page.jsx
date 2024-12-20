@@ -19,6 +19,7 @@ const ProjectDetails = () => {
     const {id} = useParams();
     console.log(id);
     const project = project_detailed.find((p) => p.live === id);
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
     if (!project) {
         return <div className='mt-[100px] pt-12 w-full container mx-auto text-center text-accent'>Project Not Found!!!</div>;
@@ -45,7 +46,6 @@ const ProjectDetails = () => {
             {/* main body */ }
             <div className='mt-6'>
                 {project.content.map((item, index) => {
-                    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
                     return (
                         <div key={index} className='flex flex-col'>
                             <div>

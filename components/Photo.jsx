@@ -22,8 +22,8 @@ const Photo = () => {
         <div className={`w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten ${
           isvisible ? "" : "hidden_opc"
         }`}>
-            <div className="relative top-0.5 left-0.5 w-[293px] h-[293px] xl:w-[490px] xl:h-[490px] xl:top-1 xl:left-1 hidden">
-                <Image src="/image_test.png" fill priority quality={1} alt="" style={{objectFit:"cover", borderRadius: "50%",}}
+            <div className="relative top-0.5 left-0.5 w-[293px] h-[293px] xl:w-[490px] xl:h-[490px] xl:top-1 xl:left-1">
+                <Image src="/placeholder_img.png" fill priority quality={100} alt="" style={{objectFit:"cover", borderRadius: "50%",}}
                 className="object-contain"/>
             </div>
 

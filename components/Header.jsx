@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 // components
-import { Button } from "./ui/button";
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 

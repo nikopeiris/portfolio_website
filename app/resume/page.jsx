@@ -1,8 +1,6 @@
 "use client";
 import "@/components/icons/styling.css";
 
-import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma, FaNodeJs } from "react-icons/fa";
-import {SiTailwindcss, SiNextdotjs} from "react-icons/si"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -24,7 +22,7 @@ import {
 // about data
 const about = {
     title: "About Me",
-    description: "I’m a first-year Engineering student at the University of Auckland with a passion for software development, problem-solving, and innovation. Whether it’s exploring creative solutions or mastering new technologies, I thrive on learning and adapting to challenges.",
+    description: "I’m a second-year Engineering student at the University of Auckland with a passion for software development, problem-solving, and innovation. Whether it’s exploring creative solutions or mastering new technologies, I thrive on learning and adapting to challenges.",
     info: [
         {
             fieldname: "Name",
@@ -36,7 +34,7 @@ const about = {
         },
         {
             fieldname: "Years Of Experience Programming",
-            fieldvalue: "2",
+            fieldvalue: "3",
         },
         {
             fieldname: "Ethnicity/Nationality",
@@ -66,7 +64,7 @@ const education = {
         {
             institution: "Mount Albert Grammar School(MAGS)",
             degree: "National Certificate of Educational Achievement(NCEA)",
-            sub_description: "Achieved level 1 with ...",
+            sub_description: "Achieved level 1 with Achieved, Level 2 & 3 with Merit. In my last year of study i took Calculus, Physics, Chemistry, and Digital Technologies as my main subjects.",
             duration: "2019-2023",
         },
         {
@@ -116,7 +114,6 @@ const skills = {
         },
     ],
 };
-
 
 const Resume = () => {
     const [isclicked, setisclicked] = useState(false);

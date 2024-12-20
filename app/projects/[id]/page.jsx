@@ -13,15 +13,15 @@ import {
 import {BsGithub} from "react-icons/bs";
 import React from 'react';
 import "@/app/globals.css";
+import { useState } from 'react';
 
 const ProjectDetails = () => {
     const {id} = useParams();
-    // const id = searchparams.get('id');
     console.log(id);
     const project = project_detailed.find((p) => p.live === id);
 
     if (!project) {
-        return <div className='mt-[100px]'>Project Not Found</div>;
+        return <div className='mt-[100px] pt-12 w-full container mx-auto text-center text-accent'>Project Not Found!!!</div>;
     };
 
     return (
@@ -43,38 +43,52 @@ const ProjectDetails = () => {
             <p className='text-white/90 flex justify-center items-center text-center w-full container mx-auto mt-6 text-lg font-bold'>{project.description}</p>
 
             {/* main body */ }
-            <div className='mt-6 space-y-8'>
-                {project.content.map((item, index) => (
-                    <div key={index}>
-                        <div>
-                            <h1 className="text-xl font-extrabold text-accent mb-2 mt-[50px] capitalize">{item.title}</h1>
-                            <div className="w-full">
-                                {item.image && (
-                                    <div className="relative xl:w-[50%] lg:h-[400px] h-[350px] xl:float-right xl:ml-4 mb-3">
-                                        <Image src={item.image} fill alt="" className="rounded-lg" />
-                                    </div>
-                                )}
-                                <p className="text-white/80 text-md text-justify">
-                                    {item.body.split('\n').map((line, index) => (
-                                        <React.Fragment key={index}>
-                                            {line}
-                                            <br />
-                                        </React.Fragment>
-                                    ))}
-                                </p>
+            <div className='mt-6'>
+                {project.content.map((item, index) => {
+                    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+                    return (
+                        <div key={index} className='flex flex-col'>
+                            <div>
+                                <h1 className="text-xl font-extrabold text-accent mb-2 mt-[30px] capitalize">{item.title}</h1>
+                                <div className="w-full">
+                                    {item.image && (
+                                        <div className={`relative mb-2 xl:ml-4 xl:float-right xl:w-[50%] flex justify-center`} style={{
+                                            width: dimensions.width > 0 ? `${dimensions.width}px` : "auto",
+                                            height: dimensions.height > 0 ? `${dimensions.height}px` : "auto",}}>
+                                            <Image src={item.image} quality={100} alt="" width={dimensions.width > 0 ? dimensions.width : 500}
+                                                height={dimensions.height > 0 ? dimensions.height : 400}
+                                                className="rounded-lg xl:w-full object-contain border-[2px] border-accent"
+                                                onLoad={(img) => {
+                                                    setDimensions({
+                                                        width: img.naturalWidth,
+                                                        height: img.naturalHeight,
+                                                    });
+                                                }}/>
+                                        </div>
+                                        
+                                    )}
+                                    <p className="text-white/80 text-md text-justify">
+                                        {item.body.split('\n').map((line, index) => (
+                                            <React.Fragment key={index}>
+                                                {line}
+                                                <br />
+                                            </React.Fragment>
+                                        ))}
+                                    </p>
+                                </div>
+                                
                             </div>
-                            
+                            <div className='border-b-2 border-accent'></div>
                         </div>
-                        <div className='border border-accent mt-[10px]'></div>
-                    </div>
-                ))}
+                    )
+                })}
             </div>
             <div className='mt-3 w-[70px] h-[70px] rounded-full'>
                 <Link href={project.github} target="_blank" rel="noopener noreferrer">
                     <TooltipProvider delayDuration={100}>
                         <Tooltip>
                             <TooltipTrigger className="w-[70px] h-[70px] rounded-full
-                            bg-white/5 flex justify-center items-center group">
+                            bg-white/10 flex justify-center items-center group">
                                 <BsGithub className="text-white text-3xl
                                 group-hover:text-accent"/>
                             </TooltipTrigger>

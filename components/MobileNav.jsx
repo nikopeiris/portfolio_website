@@ -1,5 +1,3 @@
-"use client";
-
 import { Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import {CiMenuFries} from "react-icons/ci";
@@ -19,9 +17,9 @@ const links = [
         path: "/project_overview",
     },
     {
-        name: "contact",
+        name: "contact me",
         path: "/contact",
-    }
+    },
 ]
 
 const MobileNav = () => {
@@ -43,7 +41,7 @@ const MobileNav = () => {
                 {links.map((link, index) => {
                     return (
                     <Link href={link.path} key={index} 
-                    className={`${link.path === pathname && "text-accent border-b-2 border-accent"} text-xl capitalize hover:text-accent transition-all`}
+                    className={`${link.path === pathname && "text-accent border-b-2 border-accent"} text-xl capitalize hover:text-accent-hover hover:border-b-2 hover:border-accent-hover transition-all`}
                     >
                         {link.name}
                     </Link>

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 
@@ -17,9 +15,9 @@ const links = [
         path: "/project_overview",
     },
     {
-        name: "contact",
+        name: "contact Me",
         path: "/contact",
-    }
+    },
 ]
 
 const Nav = () => {
@@ -31,7 +29,7 @@ const Nav = () => {
                 return (
                     <Link href={link.path} key={index} 
                     className={`${link.path === pathname && "text-accent border-b-2 border-accent"
-                    } capitalize font-medium hover:text-accent-hover transition-all`}>
+                    } capitalize font-medium hover:text-accent-hover transition-all hover:border-b-2 hover:border-accent-hover`}>
                         {link.name}
                     </Link>
                 );

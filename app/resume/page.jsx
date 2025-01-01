@@ -179,7 +179,7 @@ const Resume = () => {
                                             <li key={index} className="bg-[#0b0b0b] min-h-[200px] py-6 px-10
                                             rounded-xl flex flex-col justify-center items-center border border-accent-hover">
                                                 <span className="text-accent">{info.duration}</span>
-                                                <h3 className="text-xl max-w-[500px] py-1 text-center xl:text-left">{info.degree}</h3>
+                                                <h3 className="text-xl max-w-[500px] py-1 text-center">{info.degree}</h3>
                                                 <div className="flex items-center gap-3">
                                                     <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                                                     <p className="text-white/80 text-[18px]">{info.institution}</p>

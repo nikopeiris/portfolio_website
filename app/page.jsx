@@ -16,7 +16,7 @@ const Home = () => {
               Hello I'm <br/> <span className="text-accent font-extrabold">Shenol Niko Peiris</span> 
             </h1>
             {/*write text here */}
-            <p className="max-w-[500px] mb-9 text-white/80">I’m a first-year Engineering student at the University of Auckland with a passion for software development, 
+            <p className="max-w-[500px] mb-9 text-white/80">I’m a second-year Engineering student at the University of Auckland with a passion for software development, 
             problem-solving, and innovation. Whether it’s exploring creative solutions or mastering new technologies, I thrive on learning and adapting to challenges
             <Link href="/resume" className="hover:text-accent transition-all duration-200">...</Link>
             </p>

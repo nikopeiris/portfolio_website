@@ -9,6 +9,16 @@ const project_overview = [
         live: "portfolio",
         github: "https://github.com/nikopeiris/portfolio_website",
     },
+    {
+        number: "02",
+        category: "frontend",
+        title: "Project 02",
+        description: "Wanted to refresh my HTML, CSS and JavaScript skills, so I made a simple Calculator.",
+        stack: [{name: "HTML"}, {name: "CSS"}, {name: "JavaScript"},],
+        image: "/assets/Calculator/pages/calc_page.png",
+        live: "Calculator",
+        github: "https://github.com/nikopeiris/Calculator",
+    },
 ];
 
 const project_detailed = [
@@ -127,6 +137,134 @@ const project_detailed = [
         ],
         github: "https://github.com/nikopeiris/portfolio_website",
         live: "portfolio",
+        link: "",
+    },
+    {
+        number: "02",
+        category: "frontend project",
+        title: "Calculator",
+        description: "I wanted to refresh my HTML, CSS, and JavaScript skills, so I decided to create a simple calculator. This project allowed me to refresh my front-end development skills. I used HTML for the structure, CSS for styling, and JavaScript for the functionality. The calculator can perform basic arithmetic operations, such as addition, subtraction, multiplication, and division.",
+        stack: [{name: "HTML"}, {name: "CSS"}, {name: "JavaScript"},],
+        content: [
+            {
+                title: "Calculator Page",
+                body: `This is the calculator page, where users can perform basic arithmetic operations. The calculator features a display screen at the top, showing the current input and the result of the calculation. Below the display screen, there are buttons for numbers 0-9, as well as buttons for addition, subtraction, multiplication, division, decimal, and the equals sign. Users can input numbers by clicking on the buttons.`,
+                image: "/assets/Calculator/pages/calc_page.png",
+            },
+            {
+                title: "Calculator Page(HTML code)",
+                body: `The HTML structure for this page includes a main <div> with a class wrapper which creates the white foreground where the buttons are shown.
+                
+                within the wrapper, there is a <section> with a class screen that displays the current and the previous answer.
+                
+                there is also a sencond <section> with a class calc-buttons. this is where the buttons are placed. im using <button> element for the buttons that the user can click. each row of buttons are on its own parent <div> with a class of calc-button-row.`,
+                image: "/assets/Calculator/code/html_code.png",
+            },
+            {
+                title: "CSS Screen(Code)",
+                body: `For the screen css class I used 
+                backdrop-filter to apply a blur effect
+                background is set to rgba(255, 255, 255, 0.75), the 0.75 makes the colour less opaque
+                colour is set to #232323, which is a dark grey
+                border is set to 1px and solid
+                border-radius is set to 16px rounded corners
+                font-size is set to 30px which is big enough to be easily read
+                height of the screen is set to 65px`,
+                image: "/assets/Calculator/code/css_screen_code.png",
+            },
+            {
+                title: "CSS Body(code)",
+                body: `For the body css class
+                The background is a linear-gradient with a 225 angle. the gradient starts with a red and end with a neon green like colour. this makes the background look better than just one solid colour.
+                diplay is set to flex, which makes the content of the body flexable
+                justify-content is set to center, which centers the content horizontally
+                align-items is set to center, which centers the content vertically
+                font-family is set to "Dosis", sans-serif, which is a google font`,
+                image: "/assets/Calculator/code/css_body_code.png",
+            },
+            {
+                title: "CSS Button(code)",
+                body: `for the button css class
+                backdrop-filter is used to apply a blur effect
+                background is set to rgba(255, 255, 255, 0.75), the 0.75 makes the colour less opaque.
+                border is set to 1px and solid
+                border-radius is set 16px round corners
+                colour is set to #232323, which is a dark grey
+                
+                last-child for calc-button has the same properties except for the colour of the font and background.
+                background for last child is set to #d72880 which is a pinkish colour
+                and font colour is set to #fff which is white`,
+                image: "/assets/Calculator/code/css_button_code.png",
+            },
+            {
+                title: "JavaScript init code",
+                body: `This is the init function which checks if a click event is triggered on any element with a class name of calc-buttons. and when a click is triggered the init function calls buttonClick function with the text of the button as an input.`,
+                image: "/assets/Calculator/code/main_init.png",
+            },
+            {
+                title: "buttonClick function",
+                body: `i have some varriables set up called,
+                runningTotal: which keeps a track of the previous calculations
+                buffer: the current text seen on the screen
+                previousOperator: the operator clicked on by the user
+                pre_ans: previous answer to display
+                decimal: to check whether a decimal is present or Not
+                list_operators: list of operators.
+                
+                i use document.querySelector to find the first element with the given CSS classes which can be used to change the inner text of those elements.
+                
+                in the buttonClick function an if statement is used to check whether if the passed in value is a not a number, in which case it calls handlesymbol function
+                else if its a number it calls handlenumber function.
+                
+                then current_ans is set to buffer, previous_ans is set to pre_ans and if there is a scroll bar it will be scrolled to the right.`,
+                image: "/assets/Calculator/code/js_buttonclick_code.png",
+            },
+            {
+                title: "Handlesymbol function",
+                body: `for this function i used a switch statement which is similar to a if statement but it executes a block of code based on different cases.
+                when the symbol is C it will clear out all the varriables
+                
+                when the symbol is "=" it will call flush operations where it does the calculations, it also check whether if there is a operator present to do the calculation with, if there isnt it will not do anything.
+                then pre_ans becomes buffer + "=" which will display the ans =
+                buffer becomes runningTotal and runningTotal becomes 0
+                
+                when the symbol is "←" it removes a character/ number from the buffer one at a time.
+                
+                when "+, −, ×, ÷" any of these symbol are clicked on it will call handlMath with the symbol passed as an input to that function.`,
+                image: "/assets/Calculator/code/js_handlesymbol_code.png",
+            },
+            {
+                title: "handleMath function",
+                body: `The handleMath function turns the buffer which is a string into a number using parseFloat then makes that number equal to the current running total of the runningtotal is 0, if not it calls the flushOperations function.
+                
+                then it makes the previousOperator variable equals to the symbol passed when handleMath was called.
+                pre_ans gets equalled to the current runningTotal + the symbol passed in so it might look like eg: 1234+
+                then buffer is resetted back to 0`,
+                image: "/assets/Calculator/code/js_handlemath_code.png",
+            },
+            {
+                title: "flushOperation function",
+                body: `in the flushOperation function it checks if the previousOperator is +, -, ×, ÷. and does the logic to carry out the calculations
+                im using if statements to check for each operations since the logic is different for each case.`,
+                image: "/assets/Calculator/code/js_calculations_code.png",
+            },
+            {
+                title: "handlenumber function",
+                body: `this is the function where the number are added to the buffer when the buttons are clicked.
+                if the the pre_ans is not empty and the last character is a operator then the number clicked is added towards the calculations. 
+                else if the buffer is 0 and there is nor pre_ans buffer is equals to the numberstring which is a inout passed in to the handlenumber function when it is called.
+                else if the buffer is not 0 and the pre_ans is still empty then the numberstring is appended to the current buffer.`,
+                image: "/assets/Calculator/code/js_handlenumber_code.png",
+            },
+            {
+                title: "handlenegative function",
+                body: `this function makes the current buffer into a negative number. if the buffer currently isnt 0 and its a positive number, the buffer turns into a negative if the number is already negative the buffer gets turned into a positive.`,
+                image: "/assets/Calculator/code/js_handlenegative_code.png"
+            }
+        ],
+        github: "https://github.com/nikopeiris/Calculator",
+        live: "Calculator",
+        link: "https://calculator-six-rho-64.vercel.app/",
     },
 ];
 

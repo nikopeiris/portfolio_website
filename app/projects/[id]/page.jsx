@@ -10,7 +10,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
-import {BsGithub} from "react-icons/bs";
+import {BsGithub, BsArrowUpRight} from "react-icons/bs";
 import React from 'react';
 import "@/app/globals.css";
 import { useState } from 'react';
@@ -57,7 +57,7 @@ const ProjectDetails = () => {
                                             height: dimensions.height > 0 ? `${dimensions.height}px` : "auto",}}>
                                             <Image src={item.image} quality={100} alt="" width={dimensions.width > 0 ? dimensions.width : 500}
                                                 height={dimensions.height > 0 ? dimensions.height : 400}
-                                                className="rounded-lg xl:w-full object-contain border-[2px] border-accent"
+                                                className="rounded-lg object-contain border-[2px] border-accent"
                                                 onLoad={(img) => {
                                                     setDimensions({
                                                         width: img.naturalWidth,
@@ -83,22 +83,40 @@ const ProjectDetails = () => {
                     )
                 })}
             </div>
-            <div className='mt-3 w-[70px] h-[70px] rounded-full'>
-                <Link href={project.github} target="_blank" rel="noopener noreferrer">
-                    <TooltipProvider delayDuration={100}>
-                        <Tooltip>
-                            <TooltipTrigger className="w-[70px] h-[70px] rounded-full
-                            bg-white/10 flex justify-center items-center group">
-                                <BsGithub className="text-white text-3xl
-                                group-hover:text-accent"/>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>GitHub Project/Repository</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                </Link>
-            </div>
+            <section className='flex flex-row gap-4 mt-2'>
+                <div className='mt-3 w-[70px] h-[70px] rounded-full'>
+                    <Link href={project.github} target="_blank" rel="noopener noreferrer">
+                        <TooltipProvider delayDuration={100}>
+                            <Tooltip>
+                                <TooltipTrigger className="w-[70px] h-[70px] rounded-full
+                                bg-white/10 flex justify-center items-center group">
+                                    <BsGithub className="text-white text-3xl
+                                    group-hover:text-accent"/>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>GitHub Project/Repository</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    </Link>
+                </div>
+                <div className='mt-3 w-[70px] h-[70px] rounded-full'>
+                    <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                        <TooltipProvider delayDuration={100}>
+                            <Tooltip>
+                                <TooltipTrigger className="w-[70px] h-[70px] rounded-full
+                                bg-white/10 flex justify-center items-center group">
+                                    <BsArrowUpRight className="text-white text-3xl
+                                    group-hover:text-accent"/>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>{project.title}</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    </Link>
+                </div>
+            </section>
         </div>
     );
 };

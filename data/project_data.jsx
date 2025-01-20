@@ -1,7 +1,7 @@
 const project_overview = [
     {
         number: "01",
-        category: "frontend",
+        category: "frontend project",
         title: "Project 01",
         description: "The Process of making my Portfolio website using Next.js, Tailwaind CSS and framer-motion.",
         stack: [{name: "Next.js"}, {name: "Tailwind CSS"},],
@@ -11,7 +11,7 @@ const project_overview = [
     },
     {
         number: "02",
-        category: "frontend",
+        category: "frontend project",
         title: "Project 02",
         description: "Wanted to refresh my HTML, CSS and JavaScript skills, so I made a simple Calculator.",
         stack: [{name: "HTML"}, {name: "CSS"}, {name: "JavaScript"},],
@@ -19,11 +19,20 @@ const project_overview = [
         live: "Calculator",
         github: "https://github.com/nikopeiris/Calculator",
     },
+    {
+        number: "03",
+        category: "Python Application",
+        title: "Project 03",
+        description: "Built a Website Scraper that extracts top results for movies and tv series from different years.",
+        stack: [{name: "Python"}, {name: "BeautifulSoup"}, {name: "urllib3"}],
+        image: "/assets/movie_scraper/pages/scraper.png",
+        live: "Scraper",
+        github: "https://github.com/nikopeiris/Movie_tv_scraper",
+    },
 ];
 
 const project_detailed = [
     {
-        number: "01",
         category: "frontend project",
         title: "Portfolio Website",
         description: "I wanted to create a platform where people could learn more about me, and what better way to achieve that than by building a portfolio website? While I had prior experience with HTML and CSS, I saw this as an opportunity to expand my skills and explore new technologies. I chose to develop my portfolio using Next.js and Tailwind CSS, which allowed me to create a modern, responsive design. Additionally, I incorporated smooth transition animations using Framer Motion to enhance the user experience.",
@@ -140,7 +149,6 @@ const project_detailed = [
         link: "",
     },
     {
-        number: "02",
         category: "frontend project",
         title: "Calculator",
         description: "I wanted to refresh my HTML, CSS, and JavaScript skills, so I decided to create a simple calculator. This project allowed me to refresh my front-end development skills. I used HTML for the structure, CSS for styling, and JavaScript for the functionality. The calculator can perform basic arithmetic operations, such as addition, subtraction, multiplication, and division.",
@@ -265,6 +273,59 @@ const project_detailed = [
         github: "https://github.com/nikopeiris/Calculator",
         live: "Calculator",
         link: "https://calculator-six-rho-64.vercel.app/",
+    },
+    {
+        category: "Python Application",
+        title: "Movie and Tv Series Scraper",
+        description: "Built a website scraper that extracts top results for movies and TV series from different years. The movie and TV series information is sourced from IMDb. Important: Web scraping is a method of extracting data from websites. Its legality varies worldwide and often depends on specific circumstances. While web scraping might violate the terms of use of some websites, the enforceability of these terms is not always clear. It is essential to review and understand the terms of use of any website before using web scraping to collect information.",
+        stack: [{name: "Python"}, {name: "BeautifulSoup"}, {name: "urllib3"}],
+        content: [
+            {
+                title: "Output",
+                body: `This is what the output looks like: the results are displayed as text in the terminal. In the future, I might consider adding a Graphical User Interface (GUI).
+                        The output shows the movie, its duration, and the ratings it has received so far.
+                        After the movies or series are listed, the program gives you the option to select another year and genre. If "R" or "r" is entered, the code will restart; otherwise, the application will exit.`,
+                image: "/assets/movie_scraper/pages/output.png",
+            },
+            {
+                title: "main function",
+                body: `The main function is straightforward: it calls the tv_movie function, and once the process is complete, it asks if the user wants to repeat the process. If the user presses "R" or "r," it restarts; otherwise, the application exits.`,
+                image: "/assets/movie_scraper/code/main_code.png",
+            },
+            {
+                title: "tv_movie function",
+                body: `This function prompts the user to choose between TV Series or Movies. It uses a while True loop with a try and except block to prevent invalid input.
+
+                    For example, if the user enters a number or an invalid input, the program will display "Enter a valid input!!!" and prompt the question again. If the user types t, T, m, or M, the variable choice is assigned the respective string, and the check_year function is called with choice as an argument.`,
+                image: "/assets/movie_scraper/code/tv_movie_code.png",
+            },
+            {
+                title: "scrape function",
+                body: `In this function, I have a variable named url that contains a string representing the IMDb link where the movie information is gathered. It is a formatted string, meaning I can insert variables into the string if needed. I have included the choice and year passed when the scrape function is called.
+
+                The headers variable is used to emulate a browser and an operating system so the website allows the program to gather information.
+
+                info_gathered is where the information from the website is stored. This is done using urllib3. urllib3 is a Python library for making HTTP requests, offering features like connection pooling, retries, timeout handling, and HTTPS support. The information gathered from the URL is stored in this variable as a bytes data type.
+
+                Next, I parse info_gathered (which is in bytes) using BeautifulSoup. BeautifulSoup is a Python library used for parsing and extracting data from HTML and XML files. It helps you navigate, search, and manipulate web page content easily, making it ideal for web scraping. After parsing, I use info_parsed.find_all to find an HTML element called <li> (a listed item), as IMDb structures their web pages using such elements. All the <li> elements are then added to the list variable as a list.
+
+                Finally, I call the tv function if the user requested TV series; otherwise, I call the movie function, passing the list variable as input.`,
+                image: "/assets/movie_scraper/code/scrape_code.png",
+            },
+            {
+                title: "movie and tv function",
+                body: `This is the movie function. The TV function is basically the same, except for one change, which I will explain later. We have a list input argument passed when the movie or TV function is called, and this variable contains the list of movies and TV shows. The function then loops through each element in the list and finds its title, duration, and ratings. After that, I use a print statement within a try-except block to display the title, duration, and rating of the movie or TV series. If, for any reason, the duration and/or ratings are unavailable, it will simply print the title by itself.`,
+                image: "/assets/movie_scraper/code/movie_code.png",
+            },
+            {
+                title: "To Run the program",
+                body: `Go to the GitHub page, download movie.py, and run it in an IDE like VS Code or PyCharm. Before running the program, make sure to install the required imports listed in the requirements.txt file.`,
+                image: "",
+            },
+        ],
+        github: "https://github.com/nikopeiris/Movie_tv_scraper",
+        live: "Scraper",
+        link: "https://github.com/nikopeiris/Movie_tv_scraper",
     },
 ];
 

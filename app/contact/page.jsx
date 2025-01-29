@@ -23,6 +23,7 @@ const Contact = () => {
         e.preventDefault();
 
         try {
+            setstatus("Loading");
             const response = await fetch("/api/email_api", {
                 method: "POST",
                 headers: {
@@ -125,6 +126,16 @@ const Contact = () => {
             )}
             {status === "FAILED" && (
                 <p className="mt-4 text-accent text-center mt-[30px] transition duration-2000">Failed to send the message!!! Please try again later or Contact me directly.</p>
+            )}
+            {status === "Loading" && (
+                <div className="flex justify-center mt-[30px] space-x-1">
+                    <span>Sending Message</span>
+                    <div className="flex space-x-1">
+                        <span className="animate-bounce">.</span>
+                        <span className="animate-bounce [animation-delay:0.2s]">.</span>
+                        <span className="animate-bounce [animation-delay:0.4s]">.</span>
+                    </div>
+                </div>
             )}
         </div>
     );
